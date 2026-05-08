@@ -317,12 +317,17 @@
     }
 
     .signup-form-wrap .entry__field .input {
-      background-color: rgba(255,255,255,0.08) !important;
-      border: 1px solid rgba(255,255,255,0.2) !important;
+      background-color: #fff !important;
+      border: 1px solid rgba(255,255,255,0.3) !important;
       border-radius: 0 !important;
-      color: #fff !important;
+      color: #111410 !important;
       font-size: 15px !important;
     }
+    .signup-form-wrap .entry__field .input::placeholder {
+      color: #999 !important;
+    }
+    #sib-container input::placeholder { color: #999 !important; }
+    #sib-container input:-ms-input-placeholder { color: #999 !important; }
 
     .signup-form-wrap .sib-form-block__button {
       background-color: var(--gold) !important;
@@ -1098,6 +1103,40 @@
         btn.style.border = 'none';
       }
     }
+    // Button confirmation feedback
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('sib-form');
+      var btn = document.querySelector('.signup-form-wrap .sib-form-block__button');
+      if (form && btn) {
+        form.addEventListener('submit', function() {
+          setTimeout(function() {
+            // Check if success message is visible
+            var successEl = document.getElementById('success-message');
+            var checkInterval = setInterval(function() {
+              if (successEl && successEl.style.display !== 'none' && successEl.offsetParent !== null) {
+                btn.textContent = '✓ YOU'RE ON THE LIST!';
+                btn.style.backgroundColor = '#1a7a40';
+                btn.style.color = '#fff';
+                btn.style.letterSpacing = '2px';
+                btn.disabled = true;
+                clearInterval(checkInterval);
+              }
+            }, 300);
+            // Fallback: change button after 2s regardless
+            setTimeout(function() {
+              clearInterval(checkInterval);
+              if (!btn.disabled) {
+                btn.textContent = '✓ YOU'RE ON THE LIST!';
+                btn.style.backgroundColor = '#1a7a40';
+                btn.style.color = '#fff';
+                btn.disabled = true;
+              }
+            }, 2500);
+          }, 100);
+        });
+      }
+    });
+
     window.addEventListener('load', cleanBrevoStyles);
     setTimeout(cleanBrevoStyles, 300);
     setTimeout(cleanBrevoStyles, 1000);
