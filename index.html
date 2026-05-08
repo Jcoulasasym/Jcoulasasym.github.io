@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big J's Football Newsletter</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Brevo head styles -->
+  <style>
+    @font-face { font-display: block; font-family: Roboto; src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff") }
+    @font-face { font-display: fallback; font-family: Roboto; font-weight: 600; src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff") }
+    @font-face { font-display: fallback; font-family: Roboto; font-weight: 700; src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff") }
+    :where(.sib-form-message-panel) { display: none; }
+    :where(.sib-form-message-panel .sib-notification__icon) { width: 20px; height: 20px; }
+    #sib-container input:-ms-input-placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+    #sib-container input::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+    #sib-container textarea::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+    #sib-container a { text-decoration: underline; color: #2BB2FC; }
+  </style>
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  <style>
+    .signup-form-wrap .sib-form[style] { background-color: transparent !important; }
+    .signup-form-wrap .progress-indicator__icon,
+    .signup-form-wrap .sib-hide-loader-icon,
+    .signup-form-wrap svg.icon { display: none !important; }
+    .signup-form-wrap .sib-form-block__button { position: relative; overflow: visible !important; }
+  </style>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #00421f;
+      --green-mid: #00542d;
+      --green-accent: #1a7a40;
+      --gold: #c9a84c;
+      --gold-light: #f0d080;
+      --cream: #f5f0e8;
+      --off-white: #faf7f2;
+      --dark: #111410;
+      --text-dark: #1a1c18;
+      --text-mid: #3d4035;
+      --text-light: #6b6e60;
+      --border: rgba(0,0,0,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background-color: var(--off-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(0,42,15,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 8px 20px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--green-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 40px 60px;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(120px, 25vw, 340px);
+      color: rgba(255,255,255,0.025);
+      letter-spacing: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-yard-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent calc(10% - 1px),
+          rgba(255,255,255,0.03) calc(10% - 1px),
+          rgba(255,255,255,0.03) 10%
+        );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 10vw, 110px);
+      line-height: 0.9;
+      letter-spacing: 2px;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: rgba(255,255,255,0.6);
+      padding: 6px 14px;
+    }
+
+    /* ── SIGNUP SECTION ── */
+    .signup-section {
+      background: var(--green-mid);
+      padding: 64px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .signup-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1000px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .signup-copy h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 60px);
+      color: #fff;
+      line-height: 1;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .signup-copy h2 span { color: var(--gold); }
+
+    .signup-copy p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .signup-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .signup-perks li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .perk-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* Override Brevo form for theme match */
+    .signup-form-wrap .sib-form {
+      background-color: transparent !important;
+      padding: 0 !important;
+    }
+
+    .signup-form-wrap #sib-form-container {
+      background: transparent !important;
+    }
+
+    .signup-form-wrap #sib-container {
+      background-color: transparent !important;
+      border: 1px solid rgba(255,255,255,0.15) !important;
+      border-radius: 0 !important;
+      max-width: 100% !important;
+      padding: 28px !important;
+    }
+
+    .signup-form-wrap .sib-form-block,
+    .signup-form-wrap .sib-form-block p,
+    .signup-form-wrap .entry__label {
+      color: #fff !important;
+      background-color: transparent !important;
+    }
+
+    .signup-form-wrap .entry__specification {
+      color: rgba(255,255,255,0.35) !important;
+    }
+
+    .signup-form-wrap .entry__field .input {
+      background-color: rgba(255,255,255,0.08) !important;
+      border: 1px solid rgba(255,255,255,0.2) !important;
+      border-radius: 0 !important;
+      color: #fff !important;
+      font-size: 15px !important;
+    }
+
+    .signup-form-wrap .sib-form-block__button {
+      background-color: var(--gold) !important;
+      color: #111 !important;
+      border-radius: 0 !important;
+      border: none !important;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      width: 100% !important;
+      padding: 14px 20px !important;
+      cursor: pointer !important;
+      transition: background 0.2s !important;
+    }
+
+    .signup-form-wrap .sib-form-block__button:hover {
+      background-color: var(--gold-light) !important;
+    }
+
+    /* Kill any yellow/colored wrappers Brevo injects */
+    .signup-form-wrap .sib-form > div,
+    .signup-form-wrap .sib-form-container {
+      background: transparent !important;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--dark);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 16px 20px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: var(--gold);
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+
+    /* ── WHAT YOU GET ── */
+    .features-section {
+      background: var(--off-white);
+      padding: 100px 40px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      color: var(--dark);
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .section-title span { color: var(--green-mid); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--border);
+    }
+
+    .feature-card {
+      background: var(--off-white);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+
+    .feature-card:hover { background: #fff; }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--green-mid);
+      transition: height 0.3s;
+    }
+
+    .feature-card:hover::before { height: 100%; }
+
+    .feature-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      color: rgba(0,84,45,0.08);
+      line-height: 1;
+      position: absolute;
+      top: 12px;
+      right: 20px;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--dark);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ── SAMPLE CONTENT ── */
+    .sample-section {
+      background: var(--cream);
+      padding: 100px 40px;
+    }
+
+    .sample-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .sample-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 28px 32px;
+      position: relative;
+    }
+
+    .sample-card-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--green-mid);
+      color: var(--gold);
+      padding: 4px 10px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .sample-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sample-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    .sample-list {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sample-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+
+    .sample-list li::before {
+      content: '→';
+      color: var(--green-mid);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── BETTING / FANTASY ROW ── */
+    .betting-section {
+      background: var(--dark);
+      padding: 100px 40px;
+    }
+
+    .betting-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .betting-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      color: #fff;
+      line-height: 1;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .betting-text h2 span { color: var(--gold); }
+
+    .betting-text p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .betting-props {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .prop-row {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prop-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .prop-pick {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .pick-over { color: #4ade80; }
+    .pick-under { color: #f87171; }
+    .pick-bet { color: var(--gold); }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-section {
+      background: var(--green-dark);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-family: 'Barlow', sans-serif;
+      font-style: italic;
+      font-size: clamp(20px, 3vw, 30px);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto 24px;
+    }
+
+    .testimonial-quote::before { content: '\201C'; color: var(--gold); }
+    .testimonial-quote::after { content: '\201D'; color: var(--gold); }
+
+    .testimonial-attr {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      background: var(--off-white);
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .bottom-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      color: var(--dark);
+      letter-spacing: 1px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .bottom-cta h2 span { color: var(--green-mid); }
+
+    .bottom-cta p {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--green-mid);
+      color: #fff;
+      padding: 16px 40px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--green-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── SCROLL ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 90px 20px 50px; }
+      .signup-inner { grid-template-columns: 1fr; gap: 32px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+      .sample-grid { grid-template-columns: 1fr; }
+      .betting-inner { grid-template-columns: 1fr; }
+      .signup-section { padding: 48px 20px; }
+      .features-section, .sample-section, .betting-section, .bottom-cta { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Big J's 🏈</a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#sample">Preview</a></li>
+      <li><a href="#betting">Betting</a></li>
+    </ul>
+    <a href="#signup" class="nav-cta">Join Waitlist</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">NFL</div>
+    <div class="hero-yard-lines"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Weekly NFL Intelligence</div>
+      <h1 class="hero-title">
+        Big J's
+        <span>Football</span>
+        Newsletter
+      </h1>
+      <p class="hero-desc">Stop drowning in bad takes and scattered stats. Every week, one sharp, clean newsletter — injuries, weather, schemes, matchup predictions, and more.</p>
+      <div class="hero-tags">
+        <span class="tag">Injury Reports</span>
+        <span class="tag">Weather Conditions</span>
+        <span class="tag">Scheme Breakdowns</span>
+        <span class="tag">Betting Props</span>
+        <span class="tag">Fantasy Recaps</span>
+        <span class="tag">Matchup Predictions</span>
+      </div>
+      <a href="#signup" class="btn-primary" style="font-size:15px; letter-spacing:2px;">Get Early Access →</a>
+    </div>
+  </section>
+
+  <!-- SIGNUP SECTION -->
+  <section id="signup" class="signup-section">
+    <div class="signup-inner">
+      <div class="signup-copy fade-in">
+        <h2>Join the <span>Waitlist</span></h2>
+        <p>Be first in line when Big J's Football Newsletter launches. Weekly drops, zero fluff — the NFL intelligence you actually need.</p>
+        <ul class="signup-perks">
+          <li><span class="perk-dot"></span>Game summaries for all 16+ weekly matchups</li>
+          <li><span class="perk-dot"></span>Injury & availability updates every Thursday</li>
+          <li><span class="perk-dot"></span>Stadium weather reports before kickoff</li>
+          <li><span class="perk-dot"></span>Betting props & fantasy lineup tips</li>
+          <li><span class="perk-dot"></span>Free during launch — no credit card needed</li>
+        </ul>
+      </div>
+      <div class="signup-form-wrap fade-in">
+        <!-- Begin Brevo Form -->
+        <div class="sib-form" style="text-align:center; background-color:transparent;">
+          <div id="sib-form-container" class="sib-form-container">
+            <div id="error-message" class="sib-form-message-panel" style="font-family:Helvetica,sans-serif;font-size:16px;text-align:left;color:#661d1d;background-color:#ffeded;border-color:#ff4949;border-radius:3px;max-width:540px;">
+              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon"><path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"/></svg>
+                <span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.</span>
+              </div>
+            </div>
+            <div></div>
+            <div id="success-message" class="sib-form-message-panel" style="font-family:Helvetica,sans-serif;font-size:16px;text-align:left;color:#085229;background-color:#e7faf0;border-color:#13ce66;border-radius:3px;max-width:540px;">
+              <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon"><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"/></svg>
+                <span class="sib-form-message-panel__inner-text">Your subscription has been successful.</span>
+              </div>
+            </div>
+            <div></div>
+            <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center;direction:ltr">
+              <form id="sib-form" method="POST" action="https://8b87a697.sibforms.com/serve/MUIFAIIZzBbIxicNQscHQk3OSnsV_ZIUqd-h6eOmyVQZa5u-_GMf3DScsazDpvylhXXG72ouXYlh_gwOSIM6L8Ku1ZUT2cDaX_YkbTh8Ba_wXPmVi-usY0K27Dd4lNMa9Q_V2OarDYJgwYckZUyRBDjh2aWHFeZMmIGxQJL2ce73mvoEhNsOTuwITbenuknP5eYGf-IkbUMgkJ-3tg==" data-type="subscription">
+                <div style="padding:8px 0;">
+                  <div class="sib-form-block" style="font-family:Helvetica,sans-serif;font-size:28px;font-weight:700;text-align:left;color:#fff;background-color:transparent;">
+                    <p>Join the Newsletter</p>
+                  </div>
+                </div>
+                <div style="padding:8px 0;">
+                  <div class="sib-form-block" style="font-family:Helvetica,sans-serif;font-size:15px;text-align:left;color:rgba(255,255,255,0.65);background-color:transparent;">
+                    <div class="sib-text-form-block"><p>Subscribe and stay ahead of the game every week.</p></div>
+                  </div>
+                </div>
+                <div style="padding:8px 0;">
+                  <div class="sib-input sib-form-block">
+                    <div class="form__entry entry_block">
+                      <div class="form__label-row">
+                        <label class="entry__label" style="font-weight:700;text-align:left;font-family:Helvetica,sans-serif;font-size:15px;color:#fff;" for="EMAIL" data-required="*">Email address</label>
+                        <div class="entry__field">
+                          <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="your@email.com" data-required="true" required />
+                        </div>
+                      </div>
+                      <label class="entry__error entry__error--primary" style="font-family:Helvetica,sans-serif;font-size:14px;text-align:left;color:#661d1d;background-color:#ffeded;border-color:#ff4949;border-radius:3px;"></label>
+                      <label class="entry__specification" style="font-family:Helvetica,sans-serif;font-size:12px;text-align:left;color:rgba(255,255,255,0.35);">e.g. name@example.com</label>
+                    </div>
+                  </div>
+                </div>
+                <div style="padding:8px 0;">
+                  <div class="sib-form-block" style="text-align:left">
+                    <button class="sib-form-block__button" style="font-family:'Barlow Condensed',Helvetica,sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-align:center;color:#111410;background-color:#c9a84c;border:none;border-radius:0;width:100%;padding:15px 20px;cursor:pointer;" form="sib-form" type="submit">JOIN THE WAITLIST</button>
+                  </div>
+                </div>
+                <input type="text" name="email_address_check" value="" class="input--hidden">
+                <input type="hidden" name="locale" value="en">
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- End Brevo Form -->
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number">32</div>
+        <div class="stat-label">Teams Covered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">18</div>
+        <div class="stat-label">Week Season</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Email / Week</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Free at Launch</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features" class="features-section">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">What's Inside</p>
+      <h2 class="section-title">Everything You <span>Need to Know</span></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-num">01</div>
+        <div class="feature-icon">🏥</div>
+        <div class="feature-title">Injury Reports</div>
+        <p class="feature-desc">Full week-by-week injury breakdowns for every team. Know who's in, who's out, and who's questionable before Sunday.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-num">02</div>
+        <div class="feature-icon">🌧️</div>
+        <div class="feature-title">Weather Conditions</div>
+        <p class="feature-desc">Stadium-level weather data for outdoor games. Wind, rain, temperature — all factors that shift the spread and your lineup.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-num">03</div>
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Scheme Breakdowns</div>
+        <p class="feature-desc">Offensive and defensive scheme analysis. Understand the X's and O's that drive outcomes, not just the scores.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-num">04</div>
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Game Summaries</div>
+        <p class="feature-desc">Sharp, tight recaps of every game from the previous week — who stepped up, who flopped, and what it means going forward.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-num">05</div>
+        <div class="feature-icon">🔮</div>
+        <div class="feature-title">Matchup Predictions</div>
+        <p class="feature-desc">Data-driven picks for the week ahead. We break down the matchups by the numbers so you don't have to.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-num">06</div>
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">Fantasy Recaps</div>
+        <p class="feature-desc">Key fantasy takeaways from every game, trending players, and who to target or drop heading into your next matchup.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE CONTENT -->
+  <section id="sample" class="sample-section">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Sample Content</p>
+      <h2 class="section-title">A Taste of <span>Week 9</span></h2>
+    </div>
+    <div class="sample-grid">
+      <div class="sample-card fade-in">
+        <span class="sample-card-tag">Injury Watch</span>
+        <h3>Key Absences This Week</h3>
+        <ul class="sample-list">
+          <li>Cooper Kupp — questionable (hamstring), 65% chance to play</li>
+          <li>Saquon Barkley — full practice, no concerns</li>
+          <li>Tua Tagovailoa — out (concussion protocol)</li>
+          <li>Davante Adams — doubtful (knee), monitor Saturday report</li>
+        </ul>
+      </div>
+      <div class="sample-card fade-in">
+        <span class="sample-card-tag">Weather Alert</span>
+        <h3>Games to Watch</h3>
+        <ul class="sample-list">
+          <li>BUF vs NYJ — 22mph winds, temps near 28°F. Lean run game</li>
+          <li>CHI vs GB — light rain expected, field may be soft by Q3</li>
+          <li>LV vs KC — dome game, weather neutral, scheme matchup key</li>
+          <li>PHI vs DAL — cold but calm, passing game should be fine</li>
+        </ul>
+      </div>
+      <div class="sample-card fade-in">
+        <span class="sample-card-tag">Game Recap</span>
+        <h3>KC 34 — LAC 20</h3>
+        <p>Mahomes picked apart the Chargers' Cover-2 shell in the second half. The Chiefs' motion pre-snap consistently freed Kelce in the seam. Offensive line dominance led to 180+ rushing yards — a matchup pattern worth noting vs. run-heavy opponents.</p>
+      </div>
+      <div class="sample-card fade-in">
+        <span class="sample-card-tag">Fantasy</span>
+        <h3>Start / Sit Takeaways</h3>
+        <ul class="sample-list">
+          <li>Start: Amon-Ra St. Brown — 12+ target share last 4 weeks</li>
+          <li>Start: Tony Pollard — Kamara still nursing ankle, Bell carry split</li>
+          <li>Sit: Gus Edwards — tough CB matchup, expect 40/50% snap share</li>
+          <li>Watch: Jaylen Waddle — Tua out changes volume significantly</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BETTING / PROPS -->
+  <section id="betting" class="betting-section">
+    <div class="betting-inner">
+      <div class="betting-text fade-in">
+        <h2>Betting <span>Props &</span> Lines</h2>
+        <p>Every week we surface the props that make the most sense given injury news, weather, and matchup data. No hot takes — just context-driven analysis you can actually use.</p>
+        <p style="font-size:14px; color:rgba(255,255,255,0.3); font-style:italic;">Sample props from a recent edition. Not financial advice — bet responsibly.</p>
+      </div>
+      <div class="betting-props fade-in">
+        <div class="prop-row">
+          <div>
+            <div class="prop-label">Mahomes passing yards</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:3px; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.5px;">Line: 285.5 | vs weak secondary</div>
+          </div>
+          <span class="prop-pick pick-over">OVER ↑</span>
+        </div>
+        <div class="prop-row">
+          <div>
+            <div class="prop-label">Bills team total</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:3px; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.5px;">Line: 26.5 | 25mph wind projected</div>
+          </div>
+          <span class="prop-pick pick-under">UNDER ↓</span>
+        </div>
+        <div class="prop-row">
+          <div>
+            <div class="prop-label">Deebo Samuel rush yards</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:3px; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.5px;">Line: 32.5 | high usage in red zone</div>
+          </div>
+          <span class="prop-pick pick-over">OVER ↑</span>
+        </div>
+        <div class="prop-row">
+          <div>
+            <div class="prop-label">Eagles -6.5</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:3px; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.5px;">Home, Hurts fully healthy, Jalen Carter returns</div>
+          </div>
+          <span class="prop-pick pick-bet">LEAN ★</span>
+        </div>
+        <div class="prop-row">
+          <div>
+            <div class="prop-label">CMC anytime TD scorer</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:3px; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.5px;">Line: -145 | 8 TDs last 6 games</div>
+          </div>
+          <span class="prop-pick pick-bet">BET ★</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section">
+    <p class="testimonial-quote fade-in">Finally a newsletter that treats me like I understand the game. No filler, no obvious stats I already know — just the details that actually matter.</p>
+    <p class="testimonial-attr">— Beta Reader, Season Pass Subscriber</p>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <div class="fade-in">
+      <h2>Ready to Stop <span>Guessing?</span></h2>
+      <p>Join the waitlist and get first access when Big J's Football Newsletter drops.</p>
+      <a href="#signup" class="btn-primary">Claim Your Spot →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Big J's 🏈</div>
+    <p class="footer-copy">© 2025 Big J's Football Newsletter. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#sample">Preview</a></li>
+      <li><a href="#signup">Subscribe</a></li>
+    </ul>
+  </footer>
+
+  <!-- Brevo script -->
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+    window.LOCALE = 'en';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+    window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+    window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+    window.INVALID_NUMBER = "The information provided is invalid. Please review the field format and try again.";
+    window.INVALID_DATE = "Please enter a valid date";
+    window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+    window.translation = { common: { selectedList: '{quantity} list selected', selectedLists: '{quantity} lists selected', selectedOption: '{quantity} selected', selectedOptions: '{quantity} selected' } };
+    var AUTOHIDE = Boolean(0);
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+  <script>
+    function cleanBrevoStyles() {
+      var sibForm = document.querySelector('.signup-form-wrap .sib-form');
+      if (sibForm) sibForm.style.backgroundColor = 'transparent';
+      var container = document.querySelector('.signup-form-wrap #sib-container');
+      if (container) {
+        container.style.backgroundColor = 'transparent';
+        container.style.border = '1px solid rgba(255,255,255,0.15)';
+        container.style.borderRadius = '0';
+        container.style.maxWidth = '100%';
+        container.style.padding = '28px';
+      }
+      var btn = document.querySelector('.signup-form-wrap .sib-form-block__button');
+      if (btn) {
+        btn.style.backgroundColor = '#c9a84c';
+        btn.style.color = '#111410';
+        btn.style.borderRadius = '0';
+        btn.style.width = '100%';
+        btn.style.padding = '14px 20px';
+        btn.style.border = 'none';
+      }
+    }
+    window.addEventListener('load', cleanBrevoStyles);
+    setTimeout(cleanBrevoStyles, 300);
+    setTimeout(cleanBrevoStyles, 1000);
+  </script>
+
+  <!-- Scroll animations -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
