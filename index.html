@@ -1114,7 +1114,7 @@
             var successEl = document.getElementById('success-message');
             var checkInterval = setInterval(function() {
               if (successEl && successEl.style.display !== 'none' && successEl.offsetParent !== null) {
-                btn.textContent = '✓ YOU'RE ON THE LIST!';
+                btn.textContent = "✓ YOU'RE ON THE LIST!";
                 btn.style.backgroundColor = '#1a7a40';
                 btn.style.color = '#fff';
                 btn.style.letterSpacing = '2px';
@@ -1126,7 +1126,7 @@
             setTimeout(function() {
               clearInterval(checkInterval);
               if (!btn.disabled) {
-                btn.textContent = '✓ YOU'RE ON THE LIST!';
+                btn.textContent = "✓ YOU'RE ON THE LIST!";
                 btn.style.backgroundColor = '#1a7a40';
                 btn.style.color = '#fff';
                 btn.disabled = true;
